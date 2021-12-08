@@ -20,6 +20,9 @@ RUN apk add --no-cache apache2 apache2-utils apache2-webdav mod_dav_svn &&\
 	unzip f579b035c7d37be61e01593dadb091f1f4edaae4.zip -d /opt &&\
 	rm f579b035c7d37be61e01593dadb091f1f4edaae4.zip &&\
 	mv /opt/iF.SVNAdmin-f579b035c7d37be61e01593dadb091f1f4edaae4 /opt/svnadmin &&\
+	wget 'https://patch-diff.githubusercontent.com/raw/mfreiholz/iF.SVNAdmin/pull/137.patch' &&\
+	patch '/opt/svnadmin/classes/providers/ldap/LdapUserViewProvider.class.php' '137.patch'
+	rm '137.patch'
 	ln -s /opt/svnadmin /var/www/localhost/htdocs/svnadmin &&\
 	chmod -R 777 /opt/svnadmin/data
 
