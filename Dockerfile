@@ -16,7 +16,7 @@ RUN apk add --no-cache apache2 apache2-utils apache2-webdav mod_dav_svn &&\
 	mkdir /home/svn/ &&\
 	mkdir /etc/subversion &&\
 	touch /etc/subversion/passwd &&\
-    wget --no-check-certificate https://github.com/ostylk/iF.SVNAdmin/archive/master.zip &&\
+    wget --no-check-certificate https://github.com/Rincewind34/iF.SVNAdmin/archive/master.zip &&\
 	unzip master.zip -d /opt &&\
 	rm master.zip &&\
 	mv /opt/iF.SVNAdmin-master /opt/svnadmin &&\
