@@ -21,7 +21,9 @@ RUN apk add --no-cache apache2 apache2-utils apache2-webdav mod_dav_svn &&\
 	rm master.zip &&\
 	mv /opt/iF.SVNAdmin-master /opt/svnadmin &&\
 	ln -s /opt/svnadmin /var/www/localhost/htdocs/svnadmin &&\
-	chmod -R 777 /opt/svnadmin/data
+	chmod -R 777 /opt/svnadmin/data &&\
+	ln -sf /var/log/apache2/access.log /dev/stdout &&\
+	ln -sf /var/log/apache2/error.log /dev/stderr
 
 # Solve a security issue (https://alpinelinux.org/posts/Docker-image-vulnerability-CVE-2019-5021.html)	
 RUN sed -i -e 's/^root::/root:!:/' /etc/shadow
