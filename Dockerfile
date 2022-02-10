@@ -45,5 +45,10 @@ ADD dav_svn.conf /etc/apache2/conf.d/dav_svn.conf
 # Set HOME in non /root folder
 ENV HOME /home
 
+# Set LDAP defaults
+ENV SVN_LDAP_URL="ldap://localhost"
+ENV SVN_LDAP_BIND_DN="cn=reporter,dc=my,dc=company"
+ENV SVN_LDAP_BIND_PASS="admin"
+
 # Expose ports for http and custom protocol access
 EXPOSE 80 443 3690
