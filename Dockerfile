@@ -15,7 +15,6 @@ RUN apk add --no-cache apache2 apache2-utils apache2-ldap apache2-webdav mod_dav
 	mkdir -p /run/apache2/ &&\
 	mkdir /home/svn/ &&\
 	mkdir /etc/subversion &&\
-	touch /etc/subversion/passwd &&\
     wget --no-check-certificate https://github.com/Rincewind34/iF.SVNAdmin/archive/master.zip &&\
 	unzip master.zip -d /opt &&\
 	rm master.zip &&\
@@ -36,8 +35,7 @@ ADD apache/ /etc/services.d/apache/
 ADD subversion/ /etc/services.d/subversion/
 
 # Add SVNAuth file
-ADD subversion-access-control /etc/subversion/subversion-access-control
-RUN chmod a+w /etc/subversion/* && chmod a+w /home/svn
+RUN chmod a+w /etc/subversion && chmod a+w /home/svn
 
 # Add WebDav configuration
 ADD dav_svn.conf /etc/apache2/conf.d/dav_svn.conf

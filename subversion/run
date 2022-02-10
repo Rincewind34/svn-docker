@@ -2,4 +2,17 @@
 
 # From https://github.com/smebberson/docker-alpine/tree/master/alpine-apache
 
+if ! [ -f /etc/subversion/subversion-access-control ]; then
+    cat > /etc/subversion/subversion-access-control < EOF
+        [groups]
+
+    EOF
+fi
+
+if ! [ -f /etc/subversion/passwd ]; then
+    touch /etc/subversion/passwd
+fi
+
+chmod a+w /etc/subversion/*
+
 exec /usr/bin/svnserve -d --foreground -r /home/svn --listen-port 3690;
