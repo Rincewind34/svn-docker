@@ -15,10 +15,10 @@ RUN apk add --no-cache apache2 apache2-utils apache2-ldap apache2-webdav mod_dav
 	mkdir -p /run/apache2/ &&\
 	mkdir /home/svn/ &&\
 	mkdir /etc/subversion &&\
-    wget --no-check-certificate https://github.com/Rincewind34/iF.SVNAdmin/archive/master.zip &&\
-	unzip master.zip -d /opt &&\
-	rm master.zip &&\
-	mv /opt/iF.SVNAdmin-master /opt/svnadmin &&\
+    wget --no-check-certificate https://github.com/Rincewind34/iF.SVNAdmin/archive/refs/heads/release/keycomp.zip &&\
+	unzip keycomp.zip -d /opt &&\
+	rm keycomp.zip &&\
+	mv /opt/iF.SVNAdmin-release-keycomp /opt/svnadmin &&\
 	ln -s /opt/svnadmin /var/www/localhost/htdocs/svnadmin &&\
 	chmod -R 777 /opt/svnadmin/data &&\
 	ln -sf /dev/stdout /var/log/apache2/access.log &&\
